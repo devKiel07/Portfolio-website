@@ -99,139 +99,45 @@ h6 {
   font-weight: 600;
 }
 
-
-
-/* ===============================
-   CONTACT FORM IMPROVEMENT
-================================ */
-
-/* Form Container */
-.contact-form {
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-  animation: fadeUp 0.8s ease-in-out;
+.php-email-form .sent-message {
+  display: none;
+  color: #ffffff;
+  background: #059652;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
 }
 
-/* Form Layout */
-#contact-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin-top: 20px;
+.php-email-form .loading {
+  display: none;
+  background: var(--surface-color);
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
 }
 
-/* Inputs & Textarea */
-#contact-form input,
-#contact-form textarea {
-  width: 100%;
-  padding: 12px 15px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-size: 14px;
-  transition: all 0.3s ease;
+.php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid var(--accent-color);
+  border-top-color: var(--surface-color);
+  animation: php-email-form-loading 1s linear infinite;
 }
 
-/* Focus Effect */
-#contact-form input:focus,
-#contact-form textarea:focus {
-  border-color: #0d6efd;
-  outline: none;
-  box-shadow: 0 0 6px rgba(13, 110, 253, 0.2);
-  transform: scale(1.02);
-}
-
-/* Textarea Full Width */
-#contact-form textarea {
-  grid-column: span 2;
-  min-height: 120px;
-  resize: none;
-}
-
-/* Button */
-#contact-form button {
-  grid-column: span 2;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  background: #0d6efd;
-  color: #fff;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-/* Button Hover */
-#contact-form button:hover {
-  background: #0b5ed7;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Result Message */
-#result {
-  margin-top: 15px;
-  font-weight: bold;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.4s ease;
-}
-
-/* Show Animation */
-#result.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===============================
-   INFO BOX ANIMATION
-================================ */
-
-.info-box {
-  animation: fadeLeft 0.8s ease-in-out;
-}
-
-/* ===============================
-   KEYFRAMES
-================================ */
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* ===============================
-   RESPONSIVE
-================================ */
-
-@media (max-width: 768px) {
-  #contact-form {
-    grid-template-columns: 1fr;
+@keyframes php-email-form-loading {
+  0% {
+    transform: rotate(0deg);
   }
 
-  #contact-form textarea,
-  #contact-form button {
-    grid-column: span 1;
+  100% {
+    transform: rotate(360deg);
   }
 }
-
 
 /*--------------------------------------------------------------
 # Global Header
@@ -2824,126 +2730,125 @@ section,
     padding: 1.5rem;
   }
 }
+/* ===============================
+   CONTACT FORM MODERN STYLING
+================================= */
 
-.contact .info-item {
+.contact-form {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form h3 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.contact-form p {
+  color: #6c757d;
+  margin-bottom: 25px;
+}
+
+/* Form Inputs */
+.contact-form form input,
+.contact-form form textarea {
+  width: 100%;
+  padding: 14px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  outline: none;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background: #f9fafb;
+}
+
+/* Focus Effect */
+.contact-form form input:focus,
+.contact-form form textarea:focus {
+  border-color: #0d6efd;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+/* Textarea Height */
+.contact-form form textarea {
+  min-height: 140px;
+  resize: none;
+}
+
+/* Button Styling */
+.contact-form form button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #0d6efd, #3a8bfd);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+/* Button Hover */
+.contact-form form button:hover {
+  background: linear-gradient(135deg, #0b5ed7, #2f75e0);
+  transform: translateY(-2px);
+}
+
+/* Success Message */
+#result {
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ===============================
+   CONTACT INFO BOX (LEFT SIDE)
+================================= */
+
+.info-box {
+  background: #0f172a;
+  color: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  height: 100%;
+}
+
+.info-box h3 {
+  margin-bottom: 25px;
+}
+
+.info-item {
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  align-items: flex-start;
+  margin-bottom: 20px;
 }
 
-.contact .info-item:last-child {
-  margin-bottom: 0;
-}
-
-.contact .info-item .icon-box {
-  width: 3.5rem;
-  height: 3.5rem;
-  background-color: var(--surface-color);
-  border-radius: 50%;
+.info-item .icon-box {
+  width: 45px;
+  height: 45px;
+  background: #1e293b;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  transition: 0.3s;
+  border-radius: 10px;
+  margin-right: 15px;
 }
 
-.contact .info-item .icon-box i {
-  font-size: 1.5rem;
-  color: var(--contrast-color);
+.info-item i {
+  color: #38bdf8;
+  font-size: 18px;
 }
 
-.contact .info-item:hover .icon-box {
-  background-color: var(--accent-color);
+.info-item h4 {
+  margin: 0;
+  font-size: 16px;
 }
 
-.contact .info-item .content h4 {
-  color: var(--contrast-color);
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
-.contact .info-item .content p {
-  margin-bottom: 0.25rem;
-  font-size: 0.95rem;
-}
-
-.contact .info-item .content p:last-child {
-  margin-bottom: 0;
-}
-
-.contact .contact-form {
-  background-color: var(--surface-color);
-  padding: 3rem;
-  border-radius: 1rem;
-  height: 100%;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
-}
-
-@media (max-width: 992px) {
-  .contact .contact-form {
-    padding: 1.5rem;
-  }
-}
-
-.contact .contact-form h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-@media (max-width: 768px) {
-  .contact .contact-form h3 {
-    font-size: 1.75rem;
-  }
-}
-
-.contact .contact-form p {
-  color: color-mix(in srgb, var(--default-color), transparent 25%);
-  margin-bottom: 2rem;
-}
-
-.contact .contact-form .form-control,
-.contact .contact-form .form-select {
-  padding: 0.875rem 1.25rem;
-  border-color: color-mix(in srgb, var(--default-color), transparent 90%);
-  border-radius: 0.5rem;
-  background-color: transparent;
-  color: var(--default-color);
-}
-
-.contact .contact-form .form-control:focus,
-.contact .contact-form .form-select:focus {
-  box-shadow: none;
-  border-color: var(--accent-color);
-}
-
-.contact .contact-form .form-control::placeholder,
-.contact .contact-form .form-select::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-}
-
-.contact .contact-form .btn {
-  background-color: color-mix(in srgb, var(--surface-color), transparent 80%);
-  color: var(--contrast-color);
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: 0.3s;
-}
-
-.contact .contact-form .btn i {
-  font-size: 1.25rem;
-}
-
-.contact .contact-form .btn:hover {
-  background-color: color-mix(in srgb, var(--surface-color), transparent 70%);
-}
-
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+.info-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #cbd5e1;
 }
